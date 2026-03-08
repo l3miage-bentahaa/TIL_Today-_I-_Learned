@@ -1,0 +1,32 @@
+# What is OneToMany Unidirectional Mapping?
+
+A OneToMany unidirectional relationship means that one parent entity knows about many child entities, but the child entities do not have any reference back to the parent.
+Get Spring Boot Simplified’s stories in your inbox
+
+
+For example, a Parent can have multiple Kids, but the Kids entity does not hold any reference to Parent.
+Why Use @JoinColumn in OneToMany?
+
+In JPA, a OneToMany association is by default implemented using a join table. But sometimes you want to avoid the join table and instead use a foreign key column in the child table to link to the parent.
+
+This is where @JoinColumn is useful — it specifies the foreign key column in the child entity table.
+How This Works Internally
+
+· The Parent entity has a list of Kids.
+
+· The @OneToMany annotation indicates a one-to-many relationship.
+
+· The @JoinColumn(name = “parent_id”, referencedColumnName = “pId”) tells Hibernate that the kids table contains a column named parent_id, which acts as a foreign key referencing the primary key pId in the parent table.
+
+· No join table is created. Instead, the foreign key exists in the kids table directly.
+Which side is owning and which is inverse?
+
+## This is a unidirectional OneToMany mapping.
+
+Only Parent has the reference to Kids. The Kids entity does not have any reference to Parent.
+
+The foreign key column (parent_id) is maintained in the kids table.
+
+Because the Parent entity defines the @JoinColumn on the @OneToMany side, the Parent entity is the owning side of the relationship.
+
+There is no inverse side because Kids doesn’t have any reference to Parent.
