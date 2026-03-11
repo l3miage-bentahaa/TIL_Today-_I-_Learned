@@ -1,0 +1,4 @@
+# @Controller
+In Spring Boot, a controller is a crucial component that manages incoming HTTP requests and returns appropriate responses. It acts as the **intermediary** between the client and your application’s logic, processing requests and sending back data in formats like JSON or XML.
+
+This also means that usually, your business logic is not inside the control but rather somewhere else, and the controller is just interacting with it. Keep this in mind when you build your own APIs—sometimes developers forget this part and couple the actual business logic with the API’s controller code, creating a complicated mess in their code.
